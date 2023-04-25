@@ -1,5 +1,7 @@
 import leitor.leitorCSV;
 import objeto.generico;
+import ordenacao.MetodoOrdenacao;
+import ordenacao.Ordenacao;
 import ordenacao.SelectSort;
 
 import java.util.Scanner;
@@ -12,13 +14,15 @@ public class Main {
         //ystem.out.println(CsvReader.leitor("src/dados/Sales.csv"));
 
 
-        generico<?, ?>[] objetos = leitorCSV.leitor("src/dados/Sales1.csv");
+        Ordenacao ordenacao = new Ordenacao();
 
 
 
 
-        for (int i = 0; i < objetos.length; i++) {
-            System.out.println(objetos[i].getvalue());
+
+
+        for (int i = 0; i < ordenacao.objets.length; i++) {
+            System.out.println(ordenacao.objets[i].getvalue());
         }
 
 
@@ -26,8 +30,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int op = scanner.nextInt();
         double startTime = System.nanoTime();
-        SelectSort.ordenar(objetos);
 
+        ordenacao.ordenacaoAlg(new SelectSort());
         //System.out.println("-----------------------------------------------------------------------------------");
 
 
@@ -39,7 +43,7 @@ public class Main {
         int op1 = scanner.nextInt();
         double startTime1 = System.nanoTime();
         //InsertSort.ordenar(objetos);
-        SelectSort.ordenar(objetos);
+     //   SelectSort.ordenar(objetos);
         double elapsedTime1 = (System.nanoTime()-startTime1)/1000000;
        // selectionSort.ordenar(objetos);
 
@@ -47,8 +51,8 @@ public class Main {
 
 
 
-        for (int i = 0; i < objetos.length; i++) {
-            System.out.println(objetos[i].getvalue());
+        for (int i = 0; i < ordenacao.objets.length; i++) {
+            System.out.println(ordenacao.objets[i].getvalue());
         }
 
         System.out.println(elapsedTime + "ms");
