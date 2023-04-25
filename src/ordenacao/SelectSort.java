@@ -2,9 +2,9 @@ package ordenacao;
 
 import objeto.generico;
 
-public class SelectSort {
+public class SelectSort implements MetodoOrdenacao{
 
-    public static void ordenar(generico<?, ?>[] vetor) {
+    public void ordenar(generico<?, ?>[] vetor) {
         for (int i = 0; i < vetor.length - 1; i++) {
             int min = i;
             for (int j = i + 1; j < vetor.length; j++) {

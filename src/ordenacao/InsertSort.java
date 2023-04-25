@@ -2,8 +2,8 @@ package ordenacao;
 
 import objeto.generico;
 
-public class InsertSort {
-    public static void ordenar(generico<?, ?>[] vetor) {
+public class InsertSort implements MetodoOrdenacao{
+    public void ordenar(generico<?, ?>[] vetor) {
         generico<?, ?> chave;
         for(int i = 1; i < vetor.length; i++) {
             chave = vetor[i];
