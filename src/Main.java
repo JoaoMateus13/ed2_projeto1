@@ -9,15 +9,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-  //      CsvReader.leitor("src/dados/Sales.csv");
-
-        //ystem.out.println(CsvReader.leitor("src/dados/Sales.csv"));
 
 
-        Ordenacao ordenacao = new Ordenacao();
-
-
-
+        Ordenacao ordenacao = new Ordenacao("src/dados/Sales.csv");
 
 
 
@@ -46,9 +40,6 @@ public class Main {
      //   SelectSort.ordenar(objetos);
         double elapsedTime1 = (System.nanoTime()-startTime1)/1000000;
        // selectionSort.ordenar(objetos);
-
-
-
 
 
         for (int i = 0; i < ordenacao.objets.length; i++) {

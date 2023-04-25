@@ -6,8 +6,8 @@ import objeto.generico;
 public class Ordenacao {
     public generico<?, ?>[] objets;
 
-    public Ordenacao() {
-        this.objets = leitorCSV.leitor("src/dados/Sales1.csv");
+    public Ordenacao(String caminho) {
+        this.objets = leitorCSV.leitor(caminho);
     }
 
     public void ordenacaoAlg(MetodoOrdenacao metodoOrdenacao){
