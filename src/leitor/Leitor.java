@@ -1,6 +1,8 @@
 package leitor;
+
 import objeto.generico;
 import objeto.obj;
+import objeto.objTest;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,22 +10,29 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-public class leitorCSV{
+public class Leitor {
+    public static generico<?, ?>[] leitor(String caminho, int i){
 
-
-    public static generico<?, ?>[] leitorCSV(String caminho, int i){
+        int op = i;
         String line = "";
         String csvDelimiter = ",";
-        int cont = 0;
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy HH:mm");
+        int conte = 0;
+        int tamanho = 0;
 
-        generico<String, Object>[] genericos = new generico[142009];
+        try (BufferedReader br = new BufferedReader(new FileReader(caminho)) ) {
+            while ((line = br.readLine()) != null) {
+                tamanho++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        obj[] objeto = new obj[142009]; //usar um arrylist
+
+        generico<?, ?>[] genericos = new generico[tamanho];
+        objTest[] objTests = new obj[tamanho];
 
         try (BufferedReader br = new BufferedReader(new FileReader(caminho)) ) {
 
@@ -37,17 +46,18 @@ public class leitorCSV{
                 Date orderDate = dateFormat.parse(data[4]);
                 String purchaseAddress = data[5];
 
+                objTests[conte] = new obj(orderId,product,quantityOrdered,priceEach,orderDate,purchaseAddress);
+                genericos[conte] = new generico<>(objTests[conte].retornarChave(op), objTests[conte]);
 
-                objeto[cont] = new obj(orderId,product,quantityOrdered,priceEach,orderDate,purchaseAddress);
-                genericos[cont] = new generico<>(objeto[cont].getProduct(), objeto[cont]);
-
-                cont++;
+                conte++;
 
             }
-        } catch (IOException | ParseException e) {
+        } catch (IOException e) {
             e.printStackTrace();
+        } catch (ParseException e) {
         }
 
         return genericos;
     }
+
 }

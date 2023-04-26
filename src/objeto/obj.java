@@ -2,13 +2,16 @@ package objeto;
 
 import java.util.Date;
 
-public class obj {
+public class obj extends objTest {
     private int orderId;
     private String product;
     private int quantityOrdered;
     private double priceEach;
     private Date orderDate;
     private String purchaseAddress;
+
+    public obj() {
+    }
 
     public obj(int orderId, String product,
                int quantityOrdered,
@@ -82,5 +85,16 @@ public class obj {
                 ", orderDate=" + orderDate +
                 ", purchaseAddress='" + purchaseAddress + '\'' +
                 '}';
+    }
+
+    @Override
+    public Object retornarChave(int i) {
+
+        if(i == 1){
+            return getOrderId();
+        }
+        else return getProduct();
+
+
     }
 }
