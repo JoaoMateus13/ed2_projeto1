@@ -1,3 +1,4 @@
+import objeto.objOrdem;
 import ordenacao.HeapSort;
 import ordenacao.InsertSort;
 import ordenacao.Ordenacao;
@@ -10,8 +11,18 @@ public class Main {
 
 
 
-        Ordenacao ordenacao = new Ordenacao("src/dados/Sales1.csv", 2, 0);
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("1 - ORDENAR POR NOME DO PRODUTO\n2 - ORDENAR POR ID DO PRODUTO\n---------------------------");
+        int opOrdenarPor = scanner.nextInt();
+        System.out.println("---------------------------\n1 - CRESCENTE\n2 - DESCRESCENTE\n---------------------------");
+        int opOrdemDeCrescimento = scanner.nextInt();
+
+
+
+
+        Ordenacao ordenacao = new Ordenacao("src/dados/Sales1.csv", objOrdem.values()[opOrdenarPor-1],
+                objOrdem.values()[opOrdemDeCrescimento+1]);
 
 
         for (int i = 0; i < ordenacao.objets.length; i++) {
@@ -20,17 +31,16 @@ public class Main {
 
 
         System.out.println("-----------------------------------------------------------------------------------");
-        Scanner scanner = new Scanner(System.in);
         int op = scanner.nextInt();
         double startTime = System.nanoTime();
         //ordenacao.ordenacaoAlg(new SelectSort());
-        ordenacao.ordenacaoAlg(new InsertSort());
+        ordenacao.algoritmo(new InsertSort());
         double elapsedTime = (System.nanoTime()-startTime)/1000000;
         System.out.println("-----------------------------------");
 
         int op1 = scanner.nextInt();
         double startTime1 = System.nanoTime();
-        ordenacao.ordenacaoAlg(new InsertSort());
+        ordenacao.algoritmo(new InsertSort());
         double elapsedTime1 = (System.nanoTime()-startTime1)/1000000;
 
 
@@ -40,6 +50,7 @@ public class Main {
 
         System.out.println(elapsedTime + "ms");
         System.out.println(elapsedTime1 + "msAAA");
+
 
     }
 }

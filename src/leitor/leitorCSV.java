@@ -1,6 +1,7 @@
 package leitor;
 import objeto.generico;
 import objeto.obj;
+import objeto.objOrdem;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -15,13 +16,13 @@ import java.util.List;
 public class leitorCSV{
 
 
-    public static generico<?, ?>[] leitorCSV(String caminho, int i){
+    public static generico<?, ?>[] leitorCSV(String caminho, int i, objOrdem ordemDeCrescimento){
         String line = "";
         String csvDelimiter = ",";
         int cont = 0;
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy HH:mm");
 
-        generico<String, Object>[] genericos = new generico[142009];
+        generico<?, ?>[] genericos = new generico[142009];
 
         obj[] objeto = new obj[142009]; //usar um arrylist
 
@@ -39,7 +40,7 @@ public class leitorCSV{
 
 
                 objeto[cont] = new obj(orderId,product,quantityOrdered,priceEach,orderDate,purchaseAddress);
-                genericos[cont] = new generico<>(objeto[cont].getProduct(), objeto[cont],0);
+                genericos[cont] = new generico<>(objeto[cont].getProduct(), objeto[cont],objOrdem.CRESCENTE);
 
                 cont++;
 

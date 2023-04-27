@@ -2,7 +2,7 @@ package objeto;
 
 import java.util.Date;
 
-public class obj extends objTest {
+public class obj {
     private int orderId;
     private String product;
     private int quantityOrdered;
@@ -87,10 +87,10 @@ public class obj extends objTest {
                 '}';
     }
 
-    @Override
-    public Object retornarChave(int i) {
 
-        if(i == 1){
+    public Object retornarChave(objOrdem ordenarPor) {
+
+        if(ordenarPor == objOrdem.PORID){
             return getOrderId();
         }
         else return getProduct();

@@ -4,9 +4,9 @@ public class generico<K, V> implements Comparable {
 
     private K key;
     private V value;
-    public Integer ordemDeCrescimento;
+    public objOrdem ordemDeCrescimento;
 
-    public generico(K key, V value, Integer ordemDeCrescimento) {
+    public generico(K key, V value, objOrdem ordemDeCrescimento) {
         this.key = key;
         this.value = value;
         this.ordemDeCrescimento = ordemDeCrescimento;
@@ -31,7 +31,7 @@ public class generico<K, V> implements Comparable {
 
     public <K> int compararCom(K key2) {
 
-        if (ordemDeCrescimento == 0) {
+        if (ordemDeCrescimento == objOrdem.CRESCENTE) {
             return this.comparar(this.key, key2); // Ordenação em ordem crescent
             /*Mudando a ordem de comparação faz com que o valor maior tenha um resultado negativo
              * fazendo com que a ordenação coloque ele como um valor minimo key2=vetor[min]*/

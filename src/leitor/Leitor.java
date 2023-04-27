@@ -2,7 +2,7 @@ package leitor;
 
 import objeto.generico;
 import objeto.obj;
-import objeto.objTest;
+import objeto.objOrdem;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Leitor {
-    public static generico<?, ?>[] leitor(String caminho, Integer i, Integer ordemDeCrescimento){
+    public static generico<?, ?>[] leitor(String caminho, objOrdem ordenarPor, objOrdem ordemDeCrescimento){
 
         String line = "";
         String csvDelimiter = ",";
@@ -31,7 +31,7 @@ public class Leitor {
 
 
         generico<?, ?>[] genericos = new generico[tamanho];
-        objTest[] objTests = new obj[tamanho];
+        obj[] OBJ = new obj[tamanho];
 
         try (BufferedReader br = new BufferedReader(new FileReader(caminho)) ) {
 
@@ -45,8 +45,8 @@ public class Leitor {
                 Date orderDate = dateFormat.parse(data[4]);
                 String purchaseAddress = data[5];
 
-                objTests[conte] = new obj(orderId,product,quantityOrdered,priceEach,orderDate,purchaseAddress);
-                genericos[conte] = new generico<>(objTests[conte].retornarChave(i), objTests[conte], ordemDeCrescimento);
+                OBJ[conte] = new obj(orderId,product,quantityOrdered,priceEach,orderDate,purchaseAddress);
+                genericos[conte] = new generico<>(OBJ[conte].retornarChave(ordenarPor), OBJ[conte], ordemDeCrescimento);
 
                 conte++;
 
