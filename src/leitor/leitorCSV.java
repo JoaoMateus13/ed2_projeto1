@@ -39,7 +39,7 @@ public class leitorCSV{
 
 
                 objeto[cont] = new obj(orderId,product,quantityOrdered,priceEach,orderDate,purchaseAddress);
-                genericos[cont] = new generico<>(objeto[cont].getProduct(), objeto[cont]);
+                genericos[cont] = new generico<>(objeto[cont].getProduct(), objeto[cont],0);
 
                 cont++;
 

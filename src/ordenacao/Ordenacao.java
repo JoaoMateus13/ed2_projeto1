@@ -7,11 +7,15 @@ import objeto.generico;
 public class Ordenacao {
     public generico<?, ?>[] objets;
 
-    public Ordenacao(String caminho, int i) {
-        this.objets = Leitor.leitor(caminho, i);
+    public Ordenacao(String caminho, Integer ordenarPor, Integer ordemDeCrescimento) {
+        this.objets = Leitor.leitor(caminho, ordenarPor, ordemDeCrescimento);
     }
 
-    public void ordenacaoAlg(MetodoOrdenacao metodoOrdenacao){
+    /*public void ordenacaoAlg(MetodoOrdenacao metodoOrdenacao){
         metodoOrdenacao.ordenar(objets);
+    }*/
+
+    public void ordenacaoAlg(MetodoOrdenacao metodoOrdenacao, Integer ordemDeCrescimento){
+        metodoOrdenacao.ordenar(objets, ordemDeCrescimento);
     }
 }

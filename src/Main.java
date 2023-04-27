@@ -1,3 +1,4 @@
+import ordenacao.HeapSort;
 import ordenacao.InsertSort;
 import ordenacao.Ordenacao;
 import ordenacao.SelectSort;
@@ -9,7 +10,7 @@ public class Main {
 
 
 
-        Ordenacao ordenacao = new Ordenacao("src/dados/Sales.csv", 2);
+        Ordenacao ordenacao = new Ordenacao("src/dados/Sales1.csv", 2, 0);
 
 
 
@@ -23,13 +24,13 @@ public class Main {
         int op = scanner.nextInt();
         double startTime = System.nanoTime();
         //ordenacao.ordenacaoAlg(new SelectSort());
-        ordenacao.ordenacaoAlg(new InsertSort());
+        ordenacao.ordenacaoAlg(new InsertSort(), 0);
         double elapsedTime = (System.nanoTime()-startTime)/1000000;
         System.out.println("-----------------------------------");
 
         int op1 = scanner.nextInt();
         double startTime1 = System.nanoTime();
-        ordenacao.ordenacaoAlg(new InsertSort());
+        ordenacao.ordenacaoAlg(new InsertSort(), 0);
         double elapsedTime1 = (System.nanoTime()-startTime1)/1000000;
 
 

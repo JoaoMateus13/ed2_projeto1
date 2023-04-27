@@ -13,9 +13,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Leitor {
-    public static generico<?, ?>[] leitor(String caminho, int i){
+    public static generico<?, ?>[] leitor(String caminho, Integer i, Integer ordemDeCrescimento){
 
-        int op = i;
         String line = "";
         String csvDelimiter = ",";
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy HH:mm");
@@ -47,7 +46,7 @@ public class Leitor {
                 String purchaseAddress = data[5];
 
                 objTests[conte] = new obj(orderId,product,quantityOrdered,priceEach,orderDate,purchaseAddress);
-                genericos[conte] = new generico<>(objTests[conte].retornarChave(op), objTests[conte]);
+                genericos[conte] = new generico<>(objTests[conte].retornarChave(i), objTests[conte], ordemDeCrescimento);
 
                 conte++;
 
