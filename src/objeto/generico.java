@@ -30,7 +30,6 @@ public class generico<K, V> implements Comparable {
     }
 
     public <K> int compararCom(K key2) {
-
         if (ordemDeCrescimento == objOrdem.CRESCENTE) {
             return this.comparar(this.key, key2); // Ordenação em ordem crescent
             /*Mudando a ordem de comparação faz com que o valor maior tenha um resultado negativo

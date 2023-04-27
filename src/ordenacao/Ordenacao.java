@@ -1,7 +1,6 @@
 package ordenacao;
 
 import leitor.Leitor;
-import leitor.leitorCSV;
 import objeto.generico;
 import objeto.objOrdem;
 
