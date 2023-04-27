@@ -29,7 +29,7 @@ public class generico<K, V> implements Comparable {
         }
     }
 
-    public <K> int compararCom(K key2, Integer ordemDeCrescimento) {
+    public <K> int compararCom(K key2) {
 
         if (ordemDeCrescimento == 0) {
             return this.comparar(this.key, key2); // Ordenação em ordem crescent

@@ -24,13 +24,13 @@ public class Main {
         int op = scanner.nextInt();
         double startTime = System.nanoTime();
         //ordenacao.ordenacaoAlg(new SelectSort());
-        ordenacao.ordenacaoAlg(new InsertSort(), 0);
+        ordenacao.ordenacaoAlg(new InsertSort());
         double elapsedTime = (System.nanoTime()-startTime)/1000000;
         System.out.println("-----------------------------------");
 
         int op1 = scanner.nextInt();
         double startTime1 = System.nanoTime();
-        ordenacao.ordenacaoAlg(new InsertSort(), 0);
+        ordenacao.ordenacaoAlg(new InsertSort());
         double elapsedTime1 = (System.nanoTime()-startTime1)/1000000;
 
 

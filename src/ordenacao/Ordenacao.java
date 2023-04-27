@@ -15,7 +15,7 @@ public class Ordenacao {
         metodoOrdenacao.ordenar(objets);
     }*/
 
-    public void ordenacaoAlg(MetodoOrdenacao metodoOrdenacao, Integer ordemDeCrescimento){
-        metodoOrdenacao.ordenar(objets, ordemDeCrescimento);
+    public void ordenacaoAlg(MetodoOrdenacao metodoOrdenacao){
+        metodoOrdenacao.ordenar(objets);
     }
 }
