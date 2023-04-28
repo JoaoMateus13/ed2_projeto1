@@ -11,9 +11,6 @@ public class Ordenacao {
         this.objets = Leitor.leitor(caminho, ordenarPor, ordemDeCrescimento);
     }
 
-    /*public void ordenacaoAlg(MetodoOrdenacao metodoOrdenacao){
-        metodoOrdenacao.ordenar(objets);
-    }*/
 
     public void algoritmo(MetodoOrdenacao metodoOrdenacao){
         metodoOrdenacao.ordenar(objets);

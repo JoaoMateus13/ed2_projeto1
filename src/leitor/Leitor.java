@@ -21,6 +21,9 @@ public class Leitor {
         int conte = 0;
         int tamanho = 0;
 
+
+
+        //Verificação da quantidade dos objetos
         try (BufferedReader br = new BufferedReader(new FileReader(caminho)) ) {
             while ((line = br.readLine()) != null) {
                 tamanho++;
@@ -30,6 +33,7 @@ public class Leitor {
         }
 
 
+        //Definição do tamanho dos vetores
         generico<?, ?>[] genericos = new generico[tamanho];
         obj[] OBJ = new obj[tamanho];
 
@@ -38,6 +42,8 @@ public class Leitor {
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(csvDelimiter);
 
+
+                //Atributos do objeto
                 int orderId = Integer.parseInt(data[0]);
                 String product = data[1];
                 int quantityOrdered = Integer.parseInt(data[2]);
@@ -45,7 +51,11 @@ public class Leitor {
                 Date orderDate = dateFormat.parse(data[4]);
                 String purchaseAddress = data[5];
 
+
+                //Criação do objeto
                 OBJ[conte] = new obj(orderId,product,quantityOrdered,priceEach,orderDate,purchaseAddress);
+
+                //
                 genericos[conte] = new generico<>(OBJ[conte].retornarChave(ordenarPor), OBJ[conte], ordemDeCrescimento);
 
                 conte++;

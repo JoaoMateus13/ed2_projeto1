@@ -31,12 +31,13 @@ public class generico<K, V> implements Comparable {
 
     public <K> int compararCom(K key2) {
         if (ordemDeCrescimento == objOrdem.CRESCENTE) {
-            return this.comparar(this.key, key2); // Ordenação em ordem crescent
-            /*Mudando a ordem de comparação faz com que o valor maior tenha um resultado negativo
-             * fazendo com que a ordenação coloque ele como um valor minimo key2=vetor[min]*/
+            return this.comparar(this.key, key2); // Ordenação em ordem crescente
+
+            //Mudando a ordem de comparação faz com que o valor maior tenha um resultado negativo
+            //fazendo com que a ordenação coloque ele como um valor minimo key2=vetor[min]
         }
         else{
-                return this.comparar(key2, this.key); // Ordenação em ordem decrescente (apenas inverte a ordem das chaves)
+                return this.comparar(key2, this.key); // Ordenação em ordem decrescente
             }
         }
 
