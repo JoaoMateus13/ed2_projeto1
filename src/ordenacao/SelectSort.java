@@ -4,7 +4,8 @@ import objeto.generico;
 
 public class SelectSort implements MetodoOrdenacao{
 
-    public void ordenar(generico<?, ?>[] vetor) {
+    public Resultado ordenar(generico<?, ?>[] vetor) {
+        int trocas=0;
         for (int i = 0; i < vetor.length - 1; i++) {
             int min = i;
             for (int j = i + 1; j < vetor.length; j++) {
@@ -17,7 +18,10 @@ public class SelectSort implements MetodoOrdenacao{
             generico<?, ?> aux = vetor[i];
             vetor[i] = vetor[min];
             vetor[min] = aux;
+            trocas++;
         }
+
+        return new Resultado(vetor,trocas);
     }
 
 }

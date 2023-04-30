@@ -3,15 +3,20 @@ package ordenacao;
 import objeto.generico;
 
 public class HeapSort implements MetodoOrdenacao{
+
+    static int trocas = 0;
+
     @Override
-    public void ordenar(generico<?, ?>[] vetor) {
+    public Resultado ordenar(generico<?, ?>[] vetor) {
         buildMaxHeap(vetor, vetor.length-1);
         for(int i = vetor.length - 1; i >= 1; i--) {
             generico<?, ?> aux = vetor[0];
             vetor[0] = vetor[i];
             vetor[i] = aux;
+            trocas++;
             maxHeapify(vetor, 0, i - 1);
         }
+        return new Resultado(vetor, trocas);
     }
 
     private static void buildMaxHeap(generico<?, ?>[] vetor, int tamanho) {
@@ -41,6 +46,7 @@ public class HeapSort implements MetodoOrdenacao{
             generico<?, ?> aux = vetor[maior];
             vetor[maior] = vetor[indice];
             vetor[indice] = aux;
+            trocas++;
 
             maxHeapify(vetor, maior, tamanhoAtual);
         }

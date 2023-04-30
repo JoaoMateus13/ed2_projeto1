@@ -3,7 +3,7 @@ package ordenacao;
 import objeto.generico;
 
 public interface MetodoOrdenacao {
-    void ordenar(generico<?, ?>[] vetor);
+    Resultado ordenar(generico<?, ?>[] vetor);
 
 
 }

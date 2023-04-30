@@ -12,7 +12,7 @@ public class Ordenacao {
     }
 
 
-    public void algoritmo(MetodoOrdenacao metodoOrdenacao){
-        metodoOrdenacao.ordenar(objets);
+    public Resultado algoritmo(MetodoOrdenacao metodoOrdenacao){
+       return metodoOrdenacao.ordenar(objets.clone());
     }
 }

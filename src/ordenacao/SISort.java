@@ -13,20 +13,22 @@ public class SISort implements  MetodoOrdenacao{
 
 
     @Override
-    public void ordenar(generico<?, ?>[] vetor) {
+    public Resultado ordenar(generico<?, ?>[] vetor) {
         int n = vetor.length;
         int inicio = (int) (n * percentual / 100.0);
         int fim = n - (int) (n * percentual / 100.0) - 1;
 
-        ordenarSelect(vetor, 0, inicio-1);
-        ordenarSelect(vetor, fim+1, n-1);
+        int trocas = ordenarSelect(vetor, 0, inicio-1)+
+                ordenarSelect(vetor, fim+1, n-1)+
+                ordenarInsert(vetor, 0, n-1);
 
-        ordenarInsert(vetor, inicio, fim);
+        return new Resultado(vetor,trocas);
 
     }
 
 
-    public void ordenarSelect(generico<?, ?>[] vetor, int inicio, int fim) {
+    public int ordenarSelect(generico<?, ?>[] vetor, int inicio, int fim) {
+        int trocasSelect=0;
         for (int i = inicio; i < fim - 1; i++) {
             int min = i;
             for (int j = i + 1; j <= fim; j++) {
@@ -39,22 +41,27 @@ public class SISort implements  MetodoOrdenacao{
             generico<?, ?> aux = vetor[i];
             vetor[i] = vetor[min];
             vetor[min] = aux;
+            trocasSelect++;
         }
+        return trocasSelect;
     }
 
 
 
-    public void ordenarInsert(generico<?, ?>[] vetor, int inicio, int fim) {
+    public int ordenarInsert(generico<?, ?>[] vetor, int inicio, int fim) {
+        int trocasInsert = 0;
         generico<?, ?> chave;
         for(int i = inicio+1; i <= fim; i++) {
             chave = vetor[i];
             int j;
             for(j = i-1; j >= inicio && vetor[j].compararCom(chave.getKey()) > 0; j--) {
                 vetor[j+1] = vetor[j];
+                trocasInsert++;
             }
             vetor[j+1] = chave;
+            trocasInsert++;
         }
-
+        return trocasInsert;
     }
 
 }

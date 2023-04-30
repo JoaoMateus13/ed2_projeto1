@@ -4,10 +4,12 @@ import objeto.generico;
 
 public class MergeSort implements MetodoOrdenacao{
     @Override
-    public void ordenar(generico<?, ?>[] vetor) {
+    public Resultado ordenar(generico<?, ?>[] vetor) {
         generico<?, ?>[] temp = new generico[vetor.length];
 
         mergeMain(vetor, temp, 0, vetor.length-1);
+
+        return new Resultado(vetor,1);
     }
 
     public static void ordenarInsertion(generico<?, ?>[] vetor) {

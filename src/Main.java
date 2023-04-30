@@ -28,6 +28,8 @@ public class Main {
                    objOrdem.values()[opOrdemDeCrescimento+1]);
 
 
+
+
            for (int i = 0; i < ordenacao.objets.length; i++) {
                System.out.println(ordenacao.objets[i].getvalue());
            }
@@ -36,24 +38,25 @@ public class Main {
            System.out.println("-----------------------------------------------------------------------------------");
            int op = scanner.nextInt();
            double startTime = System.nanoTime();//Marcação do tempo em "ms" (inicio)
-            ordenacao.algoritmo(new MergeSort());
+            Resultado resultado = ordenacao.algoritmo(new InsertSort());
+           System.out.println(resultado.getTrocas());
            double elapsedTime = (System.nanoTime()-startTime)/1000000;//Marcação do tempo em "ms" (fim)
            System.out.println("-----------------------------------");
 
 
-           /*int op1 = scanner.nextInt();
+/*           int op1 = scanner.nextInt();
            double startTime1 = System.nanoTime();
-            // ordenacao.algoritmo(new InsertSort());
+             ordenacao.algoritmo(new InsertSort());
             //ordenacao.algoritmo(new SISort(10));
-           double elapsedTime1 = (System.nanoTime()-startTime1)/1000000;*/
+           double elapsedTime1 = (System.nanoTime()-startTime1)/1000000;
 
 
            for (int i = 0; i < ordenacao.objets.length; i++) {
                System.out.println(ordenacao.objets[i].getvalue());
-           }
+           }*/
 
            System.out.println(elapsedTime + "ms");
-         //  System.out.println(elapsedTime1 + "msAAA");
+        //    System.out.println(elapsedTime1 + "msAAA");
 
 
 

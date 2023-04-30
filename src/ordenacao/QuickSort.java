@@ -1,11 +1,17 @@
 package ordenacao;
 
 import objeto.generico;
+import org.jetbrains.annotations.NotNull;
 
 public class QuickSort implements MetodoOrdenacao{
+
+    static int trocas =0;
+
     @Override
-    public void ordenar(generico<?, ?>[] vetor) {
+    public Resultado ordenar(generico<?, ?>[] vetor) {
         quickSort(vetor, 0, vetor.length-1);
+
+        return new Resultado(vetor, trocas);
     }
 
     private static void quickSort(generico<?, ?>[] vetor, int inicio, int fim) {
@@ -17,7 +23,7 @@ public class QuickSort implements MetodoOrdenacao{
         }
     }
 
-    private static int particiona(generico<?, ?>[] vetor, int inicio, int fim) {
+    private static int particiona(@org.jetbrains.annotations.NotNull generico<?, ?> @NotNull [] vetor, int inicio, int fim) {
         generico<?, ?> pivo = vetor[inicio];
         int i = inicio + 1;
         int f = fim;
@@ -35,11 +41,14 @@ public class QuickSort implements MetodoOrdenacao{
                 vetor[f] = troca;
                 i++;
                 f--;
+                trocas++;
             }
 
         }
         vetor[inicio] = vetor[f];
         vetor[f] = pivo;
+        trocas++;
         return f;
     }
+
 }
