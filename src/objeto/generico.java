@@ -45,7 +45,7 @@ public class generico<K, V> implements Comparable {
 
     public <K> int comparar(K key1, K key2) {
         if (key1 instanceof String) {
-            return ((String) key1).compareTo((String) key2);
+            return ((String) key1).compareToIgnoreCase((String) key2);
         } else if (key1 instanceof Integer) {
             return Integer.compare((int) key1, (int) key2);
         } else {

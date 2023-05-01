@@ -1,8 +1,10 @@
 package objeto;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Date;
 
-public class obj {
+public class obj implements Comparable{
     private int orderId;
     private String product;
     private int quantityOrdered;
@@ -97,4 +99,11 @@ public class obj {
 
 
     }
+
+    @Override
+    public int compareTo(@NotNull Object o) {
+        obj e  = (obj)o;
+        return this.getProduct().compareToIgnoreCase(e.getProduct());
+    }
+
 }
